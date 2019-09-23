@@ -1,0 +1,26 @@
+<li [ngClass]="{'list-group-item': true,'list-group-item-success':post.etat,'list-group-item-danger':!post.etat}" class="list-group-item ">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-left">{{ post.titre}}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-right">{{ post.dateInsertion| date: 'yMMMMEEEEd' | uppercase}}</p>
+            </div>
+        </div>
+       
+       
+      <div class="row">
+          <p> {{ post.contenu }}   </p>
+      </div>
+      <div class="row justify-content-between">
+         <div class="col-6">
+            <button type="button" class="btn btn-success" (click)="OnchangeEtat(post.id)" *ngIf="!post.etat">Acitvé</button>
+          <button type="button" class="btn btn-danger" (click)="OnchangeEtat(post.id)" *ngIf="post.etat">Désactive</button>
+         </div>
+         <div class="col-6">
+            <button type="button" class="btn btn-danger " (click)="OnSuppPOst(post.id)" >Supprimé</button>
+           </div>
+          
+      </div>
+       
+      </li>
